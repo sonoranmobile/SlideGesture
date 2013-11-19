@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1AF9082D183B85E900F2DC9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9082C183B85E900F2DC9D /* Foundation.framework */; };
+		1AF9082F183B85E900F2DC9D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9082E183B85E900F2DC9D /* CoreGraphics.framework */; };
+		1AF90831183B85E900F2DC9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF90830183B85E900F2DC9D /* UIKit.framework */; };
+		1AF90837183B85EA00F2DC9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AF90835183B85EA00F2DC9D /* InfoPlist.strings */; };
+		1AF90839183B85EA00F2DC9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF90838183B85EA00F2DC9D /* main.m */; };
+		1AF9083D183B85EA00F2DC9D /* SMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9083C183B85EA00F2DC9D /* SMAppDelegate.m */; };
+		1AF90840183B85EA00F2DC9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AF9083E183B85EA00F2DC9D /* Main.storyboard */; };
+		1AF90843183B85EA00F2DC9D /* SMFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF90842183B85EA00F2DC9D /* SMFirstViewController.m */; };
+		1AF90846183B85EA00F2DC9D /* SMSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF90845183B85EA00F2DC9D /* SMSecondViewController.m */; };
+		1AF90848183B85EA00F2DC9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AF90847183B85EA00F2DC9D /* Images.xcassets */; };
+		1AF9084F183B85EA00F2DC9D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9084E183B85EA00F2DC9D /* XCTest.framework */; };
+		1AF90850183B85EA00F2DC9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9082C183B85E900F2DC9D /* Foundation.framework */; };
+		1AF90851183B85EA00F2DC9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF90830183B85E900F2DC9D /* UIKit.framework */; };
+		1AF90859183B85EA00F2DC9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AF90857183B85EA00F2DC9D /* InfoPlist.strings */; };
+		1AF9085B183B85EA00F2DC9D /* DragTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9085A183B85EA00F2DC9D /* DragTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1AF90852183B85EA00F2DC9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AF90821183B85E900F2DC9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AF90828183B85E900F2DC9D;
+			remoteInfo = Drag;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1AF90829183B85E900F2DC9D /* Drag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AF9082C183B85E900F2DC9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1AF9082E183B85E900F2DC9D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1AF90830183B85E900F2DC9D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1AF90834183B85EA00F2DC9D /* Drag-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Drag-Info.plist"; sourceTree = "<group>"; };
+		1AF90836183B85EA00F2DC9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1AF90838183B85EA00F2DC9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1AF9083A183B85EA00F2DC9D /* Drag-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drag-Prefix.pch"; sourceTree = "<group>"; };
+		1AF9083B183B85EA00F2DC9D /* SMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMAppDelegate.h; sourceTree = "<group>"; };
+		1AF9083C183B85EA00F2DC9D /* SMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMAppDelegate.m; sourceTree = "<group>"; };
+		1AF9083F183B85EA00F2DC9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1AF90841183B85EA00F2DC9D /* SMFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMFirstViewController.h; sourceTree = "<group>"; };
+		1AF90842183B85EA00F2DC9D /* SMFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMFirstViewController.m; sourceTree = "<group>"; };
+		1AF90844183B85EA00F2DC9D /* SMSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMSecondViewController.h; sourceTree = "<group>"; };
+		1AF90845183B85EA00F2DC9D /* SMSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMSecondViewController.m; sourceTree = "<group>"; };
+		1AF90847183B85EA00F2DC9D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1AF9084D183B85EA00F2DC9D /* DragTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AF9084E183B85EA00F2DC9D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1AF90856183B85EA00F2DC9D /* DragTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DragTests-Info.plist"; sourceTree = "<group>"; };
+		1AF90858183B85EA00F2DC9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1AF9085A183B85EA00F2DC9D /* DragTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1AF90826183B85E900F2DC9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF9082F183B85E900F2DC9D /* CoreGraphics.framework in Frameworks */,
+				1AF90831183B85E900F2DC9D /* UIKit.framework in Frameworks */,
+				1AF9082D183B85E900F2DC9D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF9084A183B85EA00F2DC9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF9084F183B85EA00F2DC9D /* XCTest.framework in Frameworks */,
+				1AF90851183B85EA00F2DC9D /* UIKit.framework in Frameworks */,
+				1AF90850183B85EA00F2DC9D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1AF90820183B85E900F2DC9D = {
+			isa = PBXGroup;
+			children = (
+				1AF90832183B85E900F2DC9D /* Drag */,
+				1AF90854183B85EA00F2DC9D /* DragTests */,
+				1AF9082B183B85E900F2DC9D /* Frameworks */,
+				1AF9082A183B85E900F2DC9D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1AF9082A183B85E900F2DC9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AF90829183B85E900F2DC9D /* Drag.app */,
+				1AF9084D183B85EA00F2DC9D /* DragTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1AF9082B183B85E900F2DC9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AF9082C183B85E900F2DC9D /* Foundation.framework */,
+				1AF9082E183B85E900F2DC9D /* CoreGraphics.framework */,
+				1AF90830183B85E900F2DC9D /* UIKit.framework */,
+				1AF9084E183B85EA00F2DC9D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1AF90832183B85E900F2DC9D /* Drag */ = {
+			isa = PBXGroup;
+			children = (
+				1AF9083B183B85EA00F2DC9D /* SMAppDelegate.h */,
+				1AF9083C183B85EA00F2DC9D /* SMAppDelegate.m */,
+				1AF9083E183B85EA00F2DC9D /* Main.storyboard */,
+				1AF90841183B85EA00F2DC9D /* SMFirstViewController.h */,
+				1AF90842183B85EA00F2DC9D /* SMFirstViewController.m */,
+				1AF90844183B85EA00F2DC9D /* SMSecondViewController.h */,
+				1AF90845183B85EA00F2DC9D /* SMSecondViewController.m */,
+				1AF90847183B85EA00F2DC9D /* Images.xcassets */,
+				1AF90833183B85E900F2DC9D /* Supporting Files */,
+			);
+			path = Drag;
+			sourceTree = "<group>";
+		};
+		1AF90833183B85E900F2DC9D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AF90834183B85EA00F2DC9D /* Drag-Info.plist */,
+				1AF90835183B85EA00F2DC9D /* InfoPlist.strings */,
+				1AF90838183B85EA00F2DC9D /* main.m */,
+				1AF9083A183B85EA00F2DC9D /* Drag-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AF90854183B85EA00F2DC9D /* DragTests */ = {
+			isa = PBXGroup;
+			children = (
+				1AF9085A183B85EA00F2DC9D /* DragTests.m */,
+				1AF90855183B85EA00F2DC9D /* Supporting Files */,
+			);
+			path = DragTests;
+			sourceTree = "<group>";
+		};
+		1AF90855183B85EA00F2DC9D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AF90856183B85EA00F2DC9D /* DragTests-Info.plist */,
+				1AF90857183B85EA00F2DC9D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1AF90828183B85E900F2DC9D /* Drag */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AF9085E183B85EA00F2DC9D /* Build configuration list for PBXNativeTarget "Drag" */;
+			buildPhases = (
+				1AF90825183B85E900F2DC9D /* Sources */,
+				1AF90826183B85E900F2DC9D /* Frameworks */,
+				1AF90827183B85E900F2DC9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Drag;
+			productName = Drag;
+			productReference = 1AF90829183B85E900F2DC9D /* Drag.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1AF9084C183B85EA00F2DC9D /* DragTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AF90861183B85EA00F2DC9D /* Build configuration list for PBXNativeTarget "DragTests" */;
+			buildPhases = (
+				1AF90849183B85EA00F2DC9D /* Sources */,
+				1AF9084A183B85EA00F2DC9D /* Frameworks */,
+				1AF9084B183B85EA00F2DC9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AF90853183B85EA00F2DC9D /* PBXTargetDependency */,
+			);
+			name = DragTests;
+			productName = DragTests;
+			productReference = 1AF9084D183B85EA00F2DC9D /* DragTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1AF90821183B85E900F2DC9D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SM;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Michael Morris";
+				TargetAttributes = {
+					1AF9084C183B85EA00F2DC9D = {
+						TestTargetID = 1AF90828183B85E900F2DC9D;
+					};
+				};
+			};
+			buildConfigurationList = 1AF90824183B85E900F2DC9D /* Build configuration list for PBXProject "Drag" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1AF90820183B85E900F2DC9D;
+			productRefGroup = 1AF9082A183B85E900F2DC9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1AF90828183B85E900F2DC9D /* Drag */,
+				1AF9084C183B85EA00F2DC9D /* DragTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1AF90827183B85E900F2DC9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF90848183B85EA00F2DC9D /* Images.xcassets in Resources */,
+				1AF90837183B85EA00F2DC9D /* InfoPlist.strings in Resources */,
+				1AF90840183B85EA00F2DC9D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF9084B183B85EA00F2DC9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF90859183B85EA00F2DC9D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AF90825183B85E900F2DC9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF90843183B85EA00F2DC9D /* SMFirstViewController.m in Sources */,
+				1AF9083D183B85EA00F2DC9D /* SMAppDelegate.m in Sources */,
+				1AF90846183B85EA00F2DC9D /* SMSecondViewController.m in Sources */,
+				1AF90839183B85EA00F2DC9D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF90849183B85EA00F2DC9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF9085B183B85EA00F2DC9D /* DragTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1AF90853183B85EA00F2DC9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AF90828183B85E900F2DC9D /* Drag */;
+			targetProxy = 1AF90852183B85EA00F2DC9D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1AF90835183B85EA00F2DC9D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AF90836183B85EA00F2DC9D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1AF9083E183B85EA00F2DC9D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AF9083F183B85EA00F2DC9D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1AF90857183B85EA00F2DC9D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AF90858183B85EA00F2DC9D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1AF9085C183B85EA00F2DC9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1AF9085D183B85EA00F2DC9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1AF9085F183B85EA00F2DC9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Drag/Drag-Prefix.pch";
+				INFOPLIST_FILE = "Drag/Drag-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1AF90860183B85EA00F2DC9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Drag/Drag-Prefix.pch";
+				INFOPLIST_FILE = "Drag/Drag-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1AF90862183B85EA00F2DC9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Drag.app/Drag";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Drag/Drag-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DragTests/DragTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1AF90863183B85EA00F2DC9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Drag.app/Drag";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Drag/Drag-Prefix.pch";
+				INFOPLIST_FILE = "DragTests/DragTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AF90824183B85E900F2DC9D /* Build configuration list for PBXProject "Drag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AF9085C183B85EA00F2DC9D /* Debug */,
+				1AF9085D183B85EA00F2DC9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AF9085E183B85EA00F2DC9D /* Build configuration list for PBXNativeTarget "Drag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AF9085F183B85EA00F2DC9D /* Debug */,
+				1AF90860183B85EA00F2DC9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1AF90861183B85EA00F2DC9D /* Build configuration list for PBXNativeTarget "DragTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AF90862183B85EA00F2DC9D /* Debug */,
+				1AF90863183B85EA00F2DC9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1AF90821183B85E900F2DC9D /* Project object */;
+}
