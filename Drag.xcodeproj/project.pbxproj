@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A53A4F4183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A53A4F3183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m */; };
+		1A800C6A183CD386005C0EE8 /* SMSecondTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A800C69183CD386005C0EE8 /* SMSecondTableViewController.m */; };
+		1AB3FB74183F0118006EF830 /* SMThirdTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3FB73183F0118006EF830 /* SMThirdTableViewController.m */; };
 		1AF9082D183B85E900F2DC9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9082C183B85E900F2DC9D /* Foundation.framework */; };
 		1AF9082F183B85E900F2DC9D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9082E183B85E900F2DC9D /* CoreGraphics.framework */; };
 		1AF90831183B85E900F2DC9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF90830183B85E900F2DC9D /* UIKit.framework */; };
@@ -15,13 +18,13 @@
 		1AF9083D183B85EA00F2DC9D /* SMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9083C183B85EA00F2DC9D /* SMAppDelegate.m */; };
 		1AF90840183B85EA00F2DC9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AF9083E183B85EA00F2DC9D /* Main.storyboard */; };
 		1AF90843183B85EA00F2DC9D /* SMFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF90842183B85EA00F2DC9D /* SMFirstViewController.m */; };
-		1AF90846183B85EA00F2DC9D /* SMSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF90845183B85EA00F2DC9D /* SMSecondViewController.m */; };
 		1AF90848183B85EA00F2DC9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AF90847183B85EA00F2DC9D /* Images.xcassets */; };
 		1AF9084F183B85EA00F2DC9D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9084E183B85EA00F2DC9D /* XCTest.framework */; };
 		1AF90850183B85EA00F2DC9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9082C183B85E900F2DC9D /* Foundation.framework */; };
 		1AF90851183B85EA00F2DC9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF90830183B85E900F2DC9D /* UIKit.framework */; };
 		1AF90859183B85EA00F2DC9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AF90857183B85EA00F2DC9D /* InfoPlist.strings */; };
 		1AF9085B183B85EA00F2DC9D /* DragTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9085A183B85EA00F2DC9D /* DragTests.m */; };
+		1AF90865183BB79D00F2DC9D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF90864183BB79D00F2DC9D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A53A4F2183D7EA3005DA4F8 /* SMSlideGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSlideGestureRecognizer.h; sourceTree = "<group>"; };
+		1A53A4F3183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSlideGestureRecognizer.m; sourceTree = "<group>"; };
+		1A800C68183CD386005C0EE8 /* SMSecondTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSecondTableViewController.h; sourceTree = "<group>"; };
+		1A800C69183CD386005C0EE8 /* SMSecondTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSecondTableViewController.m; sourceTree = "<group>"; };
+		1AB3FB72183F0118006EF830 /* SMThirdTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMThirdTableViewController.h; path = ../SMThirdTableViewController.h; sourceTree = "<group>"; };
+		1AB3FB73183F0118006EF830 /* SMThirdTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMThirdTableViewController.m; path = ../SMThirdTableViewController.m; sourceTree = "<group>"; };
 		1AF90829183B85E900F2DC9D /* Drag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF9082C183B85E900F2DC9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AF9082E183B85E900F2DC9D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,14 +57,13 @@
 		1AF9083F183B85EA00F2DC9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AF90841183B85EA00F2DC9D /* SMFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMFirstViewController.h; sourceTree = "<group>"; };
 		1AF90842183B85EA00F2DC9D /* SMFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMFirstViewController.m; sourceTree = "<group>"; };
-		1AF90844183B85EA00F2DC9D /* SMSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMSecondViewController.h; sourceTree = "<group>"; };
-		1AF90845183B85EA00F2DC9D /* SMSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMSecondViewController.m; sourceTree = "<group>"; };
 		1AF90847183B85EA00F2DC9D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1AF9084D183B85EA00F2DC9D /* DragTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF9084E183B85EA00F2DC9D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1AF90856183B85EA00F2DC9D /* DragTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DragTests-Info.plist"; sourceTree = "<group>"; };
 		1AF90858183B85EA00F2DC9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1AF9085A183B85EA00F2DC9D /* DragTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragTests.m; sourceTree = "<group>"; };
+		1AF90864183BB79D00F2DC9D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF90865183BB79D00F2DC9D /* MapKit.framework in Frameworks */,
 				1AF9082F183B85E900F2DC9D /* CoreGraphics.framework in Frameworks */,
 				1AF90831183B85E900F2DC9D /* UIKit.framework in Frameworks */,
 				1AF9082D183B85E900F2DC9D /* Foundation.framework in Frameworks */,
@@ -104,6 +113,7 @@
 		1AF9082B183B85E900F2DC9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AF90864183BB79D00F2DC9D /* MapKit.framework */,
 				1AF9082C183B85E900F2DC9D /* Foundation.framework */,
 				1AF9082E183B85E900F2DC9D /* CoreGraphics.framework */,
 				1AF90830183B85E900F2DC9D /* UIKit.framework */,
@@ -120,8 +130,12 @@
 				1AF9083E183B85EA00F2DC9D /* Main.storyboard */,
 				1AF90841183B85EA00F2DC9D /* SMFirstViewController.h */,
 				1AF90842183B85EA00F2DC9D /* SMFirstViewController.m */,
-				1AF90844183B85EA00F2DC9D /* SMSecondViewController.h */,
-				1AF90845183B85EA00F2DC9D /* SMSecondViewController.m */,
+				1A800C68183CD386005C0EE8 /* SMSecondTableViewController.h */,
+				1A800C69183CD386005C0EE8 /* SMSecondTableViewController.m */,
+				1A53A4F2183D7EA3005DA4F8 /* SMSlideGestureRecognizer.h */,
+				1A53A4F3183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m */,
+				1AB3FB72183F0118006EF830 /* SMThirdTableViewController.h */,
+				1AB3FB73183F0118006EF830 /* SMThirdTableViewController.m */,
 				1AF90847183B85EA00F2DC9D /* Images.xcassets */,
 				1AF90833183B85E900F2DC9D /* Supporting Files */,
 			);
@@ -256,9 +270,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AF90843183B85EA00F2DC9D /* SMFirstViewController.m in Sources */,
+				1A800C6A183CD386005C0EE8 /* SMSecondTableViewController.m in Sources */,
 				1AF9083D183B85EA00F2DC9D /* SMAppDelegate.m in Sources */,
-				1AF90846183B85EA00F2DC9D /* SMSecondViewController.m in Sources */,
 				1AF90839183B85EA00F2DC9D /* main.m in Sources */,
+				1A53A4F4183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m in Sources */,
+				1AB3FB74183F0118006EF830 /* SMThirdTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +483,7 @@
 				1AF90860183B85EA00F2DC9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AF90861183B85EA00F2DC9D /* Build configuration list for PBXNativeTarget "DragTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +492,7 @@
 				1AF90863183B85EA00F2DC9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
