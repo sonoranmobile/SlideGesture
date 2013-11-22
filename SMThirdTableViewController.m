@@ -102,7 +102,7 @@
 	SMSlideGestureRecognizer* recog =[[SMSlideGestureRecognizer alloc] initWithTarget:self
 																			   action:@selector(accessoryButtonTouched:)];
 	//	recog.slideWidth = 120.0;
-	[cell.contentView addGestureRecognizer:recog];
+	[cell.contentView.superview addGestureRecognizer:recog];
     
     return cell;
 }

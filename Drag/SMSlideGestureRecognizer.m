@@ -67,7 +67,6 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 	moreButton.backgroundColor = backgroundColor;
 	[moreButton setTitleColor:textColor forState:UIControlStateNormal];
 	[moreButton setTitle:@"More" forState:UIControlStateNormal];
-	[moreButton addTarget:self action:@selector(moreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 	
 	buttonFrame = CGRectMake(_slideWidth / 2.0, 0.0, _slideWidth / 2.0, parent.bounds.size.height);
 	backgroundColor = [UIColor redColor];
@@ -79,7 +78,6 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 	[view addSubview:moreButton];
 	[view addSubview:deleteButton];
 	_buttonView = view;
-	[deleteButton addTarget:self action:@selector(deleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 	_buttons = @[deleteButton, moreButton];
 }
 
@@ -103,22 +101,16 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 			break;
 			
 		case SMSlideOpeningState:
-			// Should not get here
-			NSLog(@"Invalid state touchesBegan:withEvent: with local state SMSlideOpeningState");
-			self.state = UIGestureRecognizerStateFailed;
+		case SMSlideClosingState:
+			// If it gets here the user has touched a location where a button will be
+			// before the open animation is complete, so ignore the touch
 			break;
 			
 		case SMSlideOpenState:
 			_minX = _lastTouchPoint.x;
 			_maxX = _lastTouchPoint.x + _slideWidth;
-			
 			break;
 			
-		case SMSlideClosingState:
-			// Should not get here
-			NSLog(@"Invalid state touchesBegan:withEvent: with local state SMSlideClosingState");
-			self.state = UIGestureRecognizerStateFailed;
-			break;
 			
 		case SMSlideInvalidState:
 			self.state = UIGestureRecognizerStateFailed;
@@ -141,7 +133,7 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 		case SMSlideClosedState:
 			if(direction == SMSlideMoveRight) {
 				nextState = UIGestureRecognizerStateCancelled;
-				[self closeSlider];
+				//				[self closeSlider];
 			} else {
 				nextState = UIGestureRecognizerStateBegan;
 				_buttonView.hidden = NO;
@@ -162,6 +154,9 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 			break;
 			
 		case SMSlideOpenState:
+			if(direction == SMSlideMoveRight) {
+				[self closeSlider];
+			}
 			break;
 			
 		case SMSlideClosingState:
@@ -180,7 +175,7 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch* touch = [[event allTouches] anyObject];
 	CGPoint newPosition = [touch locationInView:self.view];
-	UIGestureRecognizerState nextState = UIGestureRecognizerStateChanged;
+	UIGestureRecognizerState nextState = self.state;
 	UIView* touchedView = nil;
 	
 	switch(_slideState) {
@@ -190,13 +185,12 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 			break;
 			
 		case SMSlideOpeningState:
-		case SMSlideClosingState:
 			if([self openPercent] >= 0.5) {
 				[self openSlider];
 				nextState = UIGestureRecognizerStateChanged;
 			} else {
 				[self closeSlider];
-				nextState = UIGestureRecognizerStateEnded;
+				nextState = UIGestureRecognizerStateCancelled;
 			}
 			break;
 			
@@ -211,6 +205,10 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 			}
 			[self closeSlider];
 				
+			break;
+
+		case SMSlideClosingState:
+			nextState = UIGestureRecognizerStateCancelled;
 			break;
 			
 		case SMSlideInvalidState:
@@ -250,17 +248,19 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 }
 
 -(void)doSlideWithDeltaX:(CGFloat)deltaX {
-	__weak SMSlideGestureRecognizer* weakSelf = self;
-	[UIView animateWithDuration:0.25
-					 animations:^{
-						 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
-						 UIView* view = nil;
-						 for(view in strongSelf.view.subviews) {
-							 CGPoint newCenter = view.center;
-							 newCenter.x += deltaX;
-							 view.center = newCenter;
-						 }
-					 }];
+	if(deltaX >= 1.0 || deltaX < -1.0) {
+		__weak SMSlideGestureRecognizer* weakSelf = self;
+		[UIView animateWithDuration:0.1
+						 animations:^{
+							 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
+							 UIView* view = nil;
+							 for(view in strongSelf.view.subviews) {
+								 CGPoint newCenter = view.center;
+								 newCenter.x += deltaX;
+								 view.center = newCenter;
+							 }
+						 }];
+	}
 }
 
 -(void)openSlider {
@@ -268,31 +268,36 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 	CGFloat slideGoalX = self.view.frame.size.width - _slideWidth;
 	CGFloat deltaX = slideGoalX - currentButtonX;
 	CGFloat bounceDelta = (deltaX < 0.0) ? -10.0:10.0;
-		
-	__weak SMSlideGestureRecognizer* weakSelf = self;
-	[UIView animateWithDuration:0.25
-					 animations:^{
-								 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
+	
+	if(deltaX != 0.0) {
+		__weak SMSlideGestureRecognizer* weakSelf = self;
+		[UIView animateWithDuration:0.25
+						 animations:^{
+							 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
+							 UIView* view = nil;
+							 for(view in strongSelf.view.subviews) {
+								 CGPoint newCenter = view.center;
+								 newCenter.x += (deltaX + bounceDelta);
+								 view.center = newCenter;
+							 }
+						 }
+						 completion:^(BOOL finished) {
+							 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
+							 [UIView animateWithDuration:0.05 animations:^{
 								 UIView* view = nil;
 								 for(view in strongSelf.view.subviews) {
 									 CGPoint newCenter = view.center;
-									 newCenter.x += (deltaX + bounceDelta);
+									 newCenter.x += -(bounceDelta);
 									 view.center = newCenter;
 								 }
-							   }
-				 completion:^(BOOL finished) {
-								 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
-								 [UIView animateWithDuration:0.05 animations:^{
-									 UIView* view = nil;
-									 for(view in strongSelf.view.subviews) {
-										 CGPoint newCenter = view.center;
-										 newCenter.x += -(bounceDelta);
-										 view.center = newCenter;
-									 }
-									 
-								 }];
-								}];
-	_slideState = SMSlideOpenState;
+								 
+							 }
+											  completion:^(BOOL finished){
+												  __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
+												  strongSelf.slideState = SMSlideOpenState;
+											  }];
+						 }];
+	}
 }
 
 
@@ -301,34 +306,38 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 -(void)closeSlider {
 	CGFloat openedX = _buttonView.frame.origin.x;
 	CGFloat deltaX = self.view.frame.size.width - openedX;
-
-	__weak SMSlideGestureRecognizer* weakSelf = self;
-	[UIView animateWithDuration:0.1
-					 animations:^{
-									 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
-									 UIView* view = nil;
-									 for(view in strongSelf.view.subviews) {
-										 CGPoint newCenter = view.center;
-										 newCenter.x += (deltaX + 10.0);
-										 view.center = newCenter;
-									 }
-								}
-					 completion:^(BOOL finished) {
-						 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
-						 [UIView animateWithDuration:0.05 animations:^{
+	
+	if(deltaX != 0.0) {
+		__weak SMSlideGestureRecognizer* weakSelf = self;
+		[UIView animateWithDuration:0.25
+						 animations:^{
+							 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
 							 UIView* view = nil;
 							 for(view in strongSelf.view.subviews) {
 								 CGPoint newCenter = view.center;
-								 newCenter.x -= 10.0;
+								 newCenter.x += (deltaX + 10.0);
 								 view.center = newCenter;
 							 }
-							 
-							 [strongSelf.view sendSubviewToBack:_buttonView];
-							 strongSelf.buttonView.hidden = YES;
-
+						 }
+						 completion:^(BOOL finished) {
+							 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
+							 [UIView animateWithDuration:0.05 animations:^{
+								 UIView* view = nil;
+								 for(view in strongSelf.view.subviews) {
+									 CGPoint newCenter = view.center;
+									 newCenter.x -= 10.0;
+									 view.center = newCenter;
+								 }
+								 
+								 [strongSelf.view sendSubviewToBack:_buttonView];
+								 strongSelf.buttonView.hidden = YES;
+								 
+							 }completion:^(BOOL finished){
+								 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
+								 strongSelf.slideState = SMSlideClosedState;
+							 }];
 						 }];
-					 }];
-
+	}
 	_slideState = SMSlideClosedState;
 }
 
