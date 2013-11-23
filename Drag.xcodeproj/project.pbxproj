@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A53A4F4183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A53A4F3183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m */; };
 		1A800C6A183CD386005C0EE8 /* SMSecondTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A800C69183CD386005C0EE8 /* SMSecondTableViewController.m */; };
-		1AB3FB74183F0118006EF830 /* SMThirdTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3FB73183F0118006EF830 /* SMThirdTableViewController.m */; };
+		1A87E4201840EAA900DD8CF4 /* SMThirdTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A87E41F1840EAA900DD8CF4 /* SMThirdTableViewController.m */; };
 		1AF9082D183B85E900F2DC9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9082C183B85E900F2DC9D /* Foundation.framework */; };
 		1AF9082F183B85E900F2DC9D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9082E183B85E900F2DC9D /* CoreGraphics.framework */; };
 		1AF90831183B85E900F2DC9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF90830183B85E900F2DC9D /* UIKit.framework */; };
@@ -42,8 +42,8 @@
 		1A53A4F3183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSlideGestureRecognizer.m; sourceTree = "<group>"; };
 		1A800C68183CD386005C0EE8 /* SMSecondTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSecondTableViewController.h; sourceTree = "<group>"; };
 		1A800C69183CD386005C0EE8 /* SMSecondTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSecondTableViewController.m; sourceTree = "<group>"; };
-		1AB3FB72183F0118006EF830 /* SMThirdTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMThirdTableViewController.h; path = ../SMThirdTableViewController.h; sourceTree = "<group>"; };
-		1AB3FB73183F0118006EF830 /* SMThirdTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMThirdTableViewController.m; path = ../SMThirdTableViewController.m; sourceTree = "<group>"; };
+		1A87E41E1840EAA900DD8CF4 /* SMThirdTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMThirdTableViewController.h; sourceTree = "<group>"; };
+		1A87E41F1840EAA900DD8CF4 /* SMThirdTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMThirdTableViewController.m; sourceTree = "<group>"; };
 		1AF90829183B85E900F2DC9D /* Drag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF9082C183B85E900F2DC9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AF9082E183B85E900F2DC9D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +125,8 @@
 		1AF90832183B85E900F2DC9D /* Drag */ = {
 			isa = PBXGroup;
 			children = (
+				1A53A4F2183D7EA3005DA4F8 /* SMSlideGestureRecognizer.h */,
+				1A53A4F3183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m */,
 				1AF9083B183B85EA00F2DC9D /* SMAppDelegate.h */,
 				1AF9083C183B85EA00F2DC9D /* SMAppDelegate.m */,
 				1AF9083E183B85EA00F2DC9D /* Main.storyboard */,
@@ -132,10 +134,8 @@
 				1AF90842183B85EA00F2DC9D /* SMFirstViewController.m */,
 				1A800C68183CD386005C0EE8 /* SMSecondTableViewController.h */,
 				1A800C69183CD386005C0EE8 /* SMSecondTableViewController.m */,
-				1A53A4F2183D7EA3005DA4F8 /* SMSlideGestureRecognizer.h */,
-				1A53A4F3183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m */,
-				1AB3FB72183F0118006EF830 /* SMThirdTableViewController.h */,
-				1AB3FB73183F0118006EF830 /* SMThirdTableViewController.m */,
+				1A87E41E1840EAA900DD8CF4 /* SMThirdTableViewController.h */,
+				1A87E41F1840EAA900DD8CF4 /* SMThirdTableViewController.m */,
 				1AF90847183B85EA00F2DC9D /* Images.xcassets */,
 				1AF90833183B85E900F2DC9D /* Supporting Files */,
 			);
@@ -270,11 +270,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AF90843183B85EA00F2DC9D /* SMFirstViewController.m in Sources */,
+				1A87E4201840EAA900DD8CF4 /* SMThirdTableViewController.m in Sources */,
 				1A800C6A183CD386005C0EE8 /* SMSecondTableViewController.m in Sources */,
 				1AF9083D183B85EA00F2DC9D /* SMAppDelegate.m in Sources */,
 				1AF90839183B85EA00F2DC9D /* main.m in Sources */,
 				1A53A4F4183D7EA3005DA4F8 /* SMSlideGestureRecognizer.m in Sources */,
-				1AB3FB74183F0118006EF830 /* SMThirdTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +404,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Drag/Drag-Prefix.pch";
 				INFOPLIST_FILE = "Drag/Drag-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -417,6 +418,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Drag/Drag-Prefix.pch";
 				INFOPLIST_FILE = "Drag/Drag-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
