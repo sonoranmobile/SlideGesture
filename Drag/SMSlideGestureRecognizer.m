@@ -26,12 +26,13 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 
 @interface SMSlideGestureRecognizer ()
 @property (assign, nonatomic) CGPoint lastTouchPoint;
-@property (assign, nonatomic) CGFloat maxX;
-@property (assign, nonatomic) CGFloat minX;
+//@property (assign, nonatomic) CGFloat maxX;
+//@property (assign, nonatomic) CGFloat minX;
 @property (weak, nonatomic) UIView* buttonView;
 @property (strong, nonatomic) NSArray* buttons;
 @property (assign, nonatomic) SMSlideState slideState;
 
+@property (strong, nonatomic) NSMutableDictionary* origins;
 @end
 
 
@@ -43,6 +44,7 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 		_slideWidth = 120.0;
 		_slideState = SMSlideClosedState;
 		_selectedButtonIndex = NSNotFound;
+		_origins = [NSMutableDictionary dictionary];
 	}
 	
 	return self;
@@ -57,7 +59,9 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 -(void)addButtonsViewToSuperview:(UIView*)parent {
 	CGRect buttonFrame = CGRectMake(parent.bounds.size.width, 0.0, _slideWidth, parent.bounds.size.height);
 	UIView* view = [[UIView alloc] initWithFrame:buttonFrame];
+	
 	[parent addSubview:view];
+	
 	UIButton* deleteButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	UIButton* moreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	buttonFrame = CGRectMake(0.0, 0.0, _slideWidth / 2.0, parent.bounds.size.height);
@@ -96,8 +100,8 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 	
 	switch(_slideState) {
 		case SMSlideClosedState:
-			_maxX = _lastTouchPoint.x;
-			_minX = _lastTouchPoint.x - _slideWidth;
+//			_maxX = _lastTouchPoint.x;
+//			_minX = _lastTouchPoint.x - _slideWidth;
 			break;
 			
 		case SMSlideOpeningState:
@@ -107,8 +111,8 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 			break;
 			
 		case SMSlideOpenState:
-			_minX = _lastTouchPoint.x;
-			_maxX = _lastTouchPoint.x + _slideWidth;
+//			_minX = _lastTouchPoint.x;
+//			_maxX = _lastTouchPoint.x + _slideWidth;
 			break;
 			
 			
@@ -125,18 +129,20 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 	UITouch* touch = [[event allTouches] anyObject];
 	CGPoint newPosition = [touch locationInView:self.view];
 	CGFloat deltaX = 0.0;
-	UIGestureRecognizerState nextState = UIGestureRecognizerStateBegan;
+	UIGestureRecognizerState nextState = self.state;
 	SMSlideMoveDirection direction = [self moveDirection:newPosition.x];
+	NSLog(@"touchesMoved:withEvent:");
 	
 	
 	switch(_slideState) {
 		case SMSlideClosedState:
+			NSLog(@"touchesMoved:withEvent: SMSlideClosedState");
 			if(direction == SMSlideMoveRight) {
 				nextState = UIGestureRecognizerStateCancelled;
-				//				[self closeSlider];
 			} else {
 				nextState = UIGestureRecognizerStateBegan;
 				_buttonView.hidden = NO;
+				[self saveOrigins];
 				[self.view bringSubviewToFront:_buttonView];
 				_slideState = SMSlideOpeningState;
 				deltaX = newPosition.x - _lastTouchPoint.x;
@@ -145,6 +151,7 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 			break;
 			
 		case SMSlideOpeningState:
+			NSLog(@"touchesMoved:withEvent: SMSlideOpeningState");
 			nextState = UIGestureRecognizerStateChanged;
 			if(direction == SMSlideMoveLeft) {
 				deltaX = newPosition.x - _lastTouchPoint.x;
@@ -154,6 +161,7 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 			break;
 			
 		case SMSlideOpenState:
+			NSLog(@"touchesMoved:withEvent: SMSlideOpeningState");
 			if(direction == SMSlideMoveRight) {
 				[self closeSlider];
 			}
@@ -244,11 +252,13 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 -(CGFloat)openPercent {
 	CGFloat openedX = self.view.frame.size.width -  _buttonView.frame.origin.x;
 	CGFloat value = openedX / _slideWidth;
+	NSLog(@"openPercent openedX %lf  value %lf", openedX, value);
 	return value;
 }
 
 -(void)doSlideWithDeltaX:(CGFloat)deltaX {
 	if(deltaX >= 1.0 || deltaX < -1.0) {
+		NSLog(@"doSlideWithDeltaX:%lf", deltaX);
 		__weak SMSlideGestureRecognizer* weakSelf = self;
 		[UIView animateWithDuration:0.1
 						 animations:^{
@@ -270,6 +280,7 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 	CGFloat bounceDelta = (deltaX < 0.0) ? -10.0:10.0;
 	
 	if(deltaX != 0.0) {
+		NSLog(@"openSlider");
 		__weak SMSlideGestureRecognizer* weakSelf = self;
 		[UIView animateWithDuration:0.25
 						 animations:^{
@@ -308,16 +319,28 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 	CGFloat deltaX = self.view.frame.size.width - openedX;
 	
 	if(deltaX != 0.0) {
+		NSLog(@"closeSlider deltaX %lf", deltaX);
 		__weak SMSlideGestureRecognizer* weakSelf = self;
 		[UIView animateWithDuration:0.25
 						 animations:^{
 							 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
+							 
+							 for(NSValue* key in [strongSelf.origins allKeys]) {
+								 UIView* view = [key nonretainedObjectValue];
+								 NSValue* value = strongSelf.origins[key];
+								 CGPoint point = [value CGPointValue];
+								 point.x += 10.0;
+								 view.center = point;
+							 }
+							 
+							 [strongSelf.origins removeAllObjects];
+							 /*
 							 UIView* view = nil;
 							 for(view in strongSelf.view.subviews) {
 								 CGPoint newCenter = view.center;
 								 newCenter.x += (deltaX + 10.0);
 								 view.center = newCenter;
-							 }
+							 }*/
 						 }
 						 completion:^(BOOL finished) {
 							 __strong SMSlideGestureRecognizer* strongSelf = weakSelf;
@@ -349,6 +372,13 @@ typedef NS_ENUM(NSInteger, SMSlideMoveDirection){
 	}
 	
 	return label;
+}
+
+-(void)saveOrigins {
+	UIView* view = nil;
+	for(view in self.view.subviews) {
+		[_origins setObject:[NSValue valueWithCGPoint:view.center] forKey:[NSValue valueWithNonretainedObject:view]];
+	}
 }
 
 @end
